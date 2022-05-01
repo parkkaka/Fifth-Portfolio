@@ -1,0 +1,141 @@
+@charset 'utf-8';
+
+@import 'reset';
+@import 'variable';
+@import 'mixin';
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+// ToDoList
+main.mainContainer {
+	width: 100vw;
+	width: 100vh;
+	//@include flexCol();
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	h1.h1TitleText {
+		width: 100%;
+		font-size: 6vw;
+		color: $blackDown;
+	}
+	.divTopContainer {
+		width: 100%;
+		height: 5vw;
+		@include flexRow();
+		justify-content: space-between;
+		padding-left: 2vw;
+		background-color: $topContainerBackgroundColor;
+		border-top-left-radius: 1vw;
+		border-top-right-radius: 1vw;
+		box-shadow: 0.1vw 0.1vw 0.5vw $boxShadow;
+		i.iPenIcon {
+			width: 3vw;
+			height: 3vw;
+			font-size: 2vw;
+			@include flexRow();
+		}
+		input[type='text'] {
+			width: 30vw;
+			font-size: 2vw;
+			border: 0.1vw solid $black;
+			margin-right: 3vw;
+			background-color: $white;
+			color: $blackDown;
+		}
+		button.buttonClick {
+			padding: 0.3vw 1.2vw;
+			font-size: 2vw;
+			background-color: rgb(250, 254, 255);
+			border-radius: 1vw;
+			margin-right: 2vw;
+			color: $blackDown;
+		}
+		button.buttonClick:hover {
+			color: $buttonClickHover;
+			transform: scale(1.2);
+		}
+	}
+	.divBottomContainer {
+		width: 100%;
+		height: 30vw;
+		overflow-x: auto;
+		background-color: $bottomContainerBackgroundColor;
+		box-shadow: 0.1vw 0.1vw 0.5vw $boxShadow;
+		ul.ulContainer {
+			width: 100%;
+			height: 3vw;
+			@include flexRow();
+			justify-content: space-around;
+			li.liToDoListName {
+				width: 15vw;
+				height: 2vw;
+				font-size: 1.5vw;
+				@include flexRow();
+			}
+			input.inputCheckBox {
+				width: 2vw;
+				height: 2vw;
+				cursor: pointer;
+			}
+			button.buttonMinus {
+				padding: 0.5vw 2vw;
+				font-size: 2vw;
+			}
+			li.liStarRating {
+				width: 13vw;
+				font-size: 1.5vw;
+			}
+			button.buttonPlus {
+				padding: 0.5vw 2vw;
+				font-size: 2vw;
+			}
+			li.liDeleteToDoListItem {
+				width: 10vw;
+				height: 2vw;
+				font-size: 1.5vw;
+				cursor: pointer;
+				@include flexRow();
+			}
+		}
+		ul.ulContainer:nth-child(2n) {
+			background-color: $topContainerBackgroundColorAndUlContainer;
+			color: $white;
+		}
+	}
+	.divBottomContainer::-webkit-scrollbar {
+		width: 0.7vw;
+		border-radius: 1vw;
+	}
+	.divBottomContainer::-webkit-scrollbar-thumb {
+		background-color: $topContainerBackgroundColorAndUlContainer;
+		border: 0.15vw solid $white;
+		border-radius: 1vw;
+	}
+	.divBottomContainer::-webkit-scrollbar-track {
+		background-color: $white;
+		border-radius: 1vw;
+	}
+	button.buttonAllDelete {
+		width: 100%;
+		height: 3vw;
+		font-size: 2.5vw;
+		background-color: $buttonAllDeleteBackgroundColor;
+		border-bottom-left-radius: 1vw;
+		border-bottom-right-radius: 1vw;
+		box-shadow: 0.1vw 0.1vw 0.5vw $boxShadow;
+	}
+	button.buttonAllDelete:hover {
+		color: #dbadad;
+	}
+	i.xi-trash:hover {
+		transform: scale(1.2);
+	}
+}
